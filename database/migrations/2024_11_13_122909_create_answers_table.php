@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('question_id');
             $table->boolean('is_sent')->default(false);
+            $table->timestamp('sent_at')->nullable();
+            $table->timestamp('scheduled_time')->nullable();
             $table->timestamps();
 
             $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
